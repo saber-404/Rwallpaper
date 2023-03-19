@@ -18,7 +18,7 @@ fn main() {
         SubItem3,
     }
 
-    let (s, r) = crossbeam_channel::unbounded();
+    let (s, r) = std::sync::mpsc::channel::<Events>();
     let icon = include_bytes!("../asset/icon1.ico");
     let icon2 = include_bytes!("../asset/icon2.ico");
 
@@ -27,7 +27,7 @@ fn main() {
 
     // Needlessly complicated tray icon with all the whistles and bells
     let mut tray_icon = TrayIconBuilder::new()
-        .sender_crossbeam(s)
+        .sender(s)
         .icon_from_buffer(icon)
         .tooltip("Cool Tray 👀 Icon")
         .on_click(Events::ClickTrayIcon)

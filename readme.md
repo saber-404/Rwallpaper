@@ -4,7 +4,7 @@ This is a win10 program that changes the wallpaper randomly at a set time, imple
 
 ### Version
 
-0_init_trayicon_examples_crossbeam
+0_init_trayicon_examples_winapi
 
 ### Reference
 
@@ -24,8 +24,7 @@ edition = "2021"
 
 [dependencies]
 winapi = { version = "0.3.9", features = ["winuser", "windef", "minwindef", "shellapi", "libloaderapi", "commctrl", "basetsd"] }
-crossbeam-channel = "0.5"
-trayicon = {git = "https://github.com/Ciantic/trayicon-rs" ,branch = "master",features = ["crossbeam-channel"]}
+trayicon = {git = "https://github.com/Ciantic/trayicon-rs" ,branch = "master",features = []}
 
 [profile.release]
 opt-level = "z" # 优化级别为z，表示最小化代码大小
